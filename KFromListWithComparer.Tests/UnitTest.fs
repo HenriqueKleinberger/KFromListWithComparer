@@ -22,7 +22,7 @@ type TestClass () =
             1
         ]
 
-        let rec comparer (el1: int) (el2: int) = el1 >= el2
+        let rec comparer (el1: int) (el2: int) = el1 <= el2
 
         let result = getIndex index comparer arg
 
@@ -47,7 +47,7 @@ type TestClass () =
             "company"
         ]
 
-        let rec comparer (el1: string) (el2: string) = el1.Length >= el2.Length
+        let rec comparer (el1: string) (el2: string) = el1.Length <= el2.Length
 
         let result = getIndex index comparer arg
 
@@ -65,7 +65,7 @@ type TestClass () =
             1
         ]
 
-        let rec comparer (el1: int) (el2: int) = el1 >= el2
+        let rec comparer (el1: int) (el2: int) = el1 <= el2
 
         
         let result = Assert.Throws<System.IndexOutOfRangeException>(fun () ->
