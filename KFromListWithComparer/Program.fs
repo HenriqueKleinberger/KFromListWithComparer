@@ -25,8 +25,13 @@ let getIndex (index: int) comparer (list: _ list) =
         | _ ->
         let (l1,l2) = split list
           in merge (mergesort l1) (mergesort l2)
+    
+    let validation = 
+        if index <= 0 then raise (System.IndexOutOfRangeException("Index should be bigger than 0."))
+        if index > list.Length then raise (System.IndexOutOfRangeException("Index is Bigger than list length."))
 
-    if index > list.Length then raise (System.IndexOutOfRangeException("Index is Bigger than list length."))
+    validation
+
     let sortedList = mergesort list
     let thSmallestItem = index - 1
     List.item thSmallestItem sortedList

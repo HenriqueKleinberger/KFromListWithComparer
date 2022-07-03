@@ -73,5 +73,25 @@ type TestClass () =
         )
         Assert.AreEqual("Index is Bigger than list length.", result.Message)
 
+    [<TestCase(0)>]
+    [<TestCase(-1)>]
+    member this.ShouldThrowErrorWhenIndexIsSmallerThan1(index: int) =
+        let arg = [
+            9
+            3
+            2
+            7
+            4
+            1
+        ]
+
+        let rec comparer (el1: int) (el2: int) = el1 >= el2
+
+        
+        let result = Assert.Throws<System.IndexOutOfRangeException>(fun () ->
+            getIndex index comparer arg  |> ignore
+        )
+        Assert.AreEqual("Index should be bigger than 0.", result.Message)
+
 
     
