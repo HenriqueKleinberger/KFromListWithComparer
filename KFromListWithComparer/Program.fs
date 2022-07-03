@@ -1,4 +1,4 @@
-﻿module Exercice
+﻿module Assignment
 
 let getIndex (index: int) comparer (list: _ list) =
     let split list =
